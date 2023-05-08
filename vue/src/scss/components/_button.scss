@@ -1,0 +1,59 @@
+// _button.scss
+// 
+// Template's button styles.
+// 
+
+.ant-btn svg {
+	margin-right: 5px;
+}
+.ant-btn.ant-btn-icon-only svg {
+	margin-right: 0;
+}
+.ant-btn > .anticon + span {
+    margin-left: 0;
+}
+.ant-btn > span + .anticon {
+    margin-left: 5px;
+}
+.ant-btn > svg {
+    vertical-align: middle;
+}
+.ant-btn > svg + span {
+    vertical-align: middle;
+}
+.ant-btn-icon-only.ant-btn-lg:not(.ant-btn-round),
+.ant-btn-icon-only.ant-btn:not(.ant-btn-round),
+.ant-btn-icon-only.ant-btn-sm:not(.ant-btn-round) {
+	padding: 0;
+}
+
+.ant-btn-circle, .ant-btn-circle-outline {
+    border-radius: 50%;
+}
+.ant-btn.fab {
+	width: 50px;
+	height: 50px;
+	background-color: $color-white;
+	position: fixed;
+    bottom: 30px;
+    right: 30px;
+	box-shadow: $shadow-3;
+
+	svg {
+		margin: 0;
+	}
+}
+
+.ant-btn.fab {
+	width: 50px;
+	height: 50px;
+	background-color: $color-white;
+	position: fixed;
+    bottom: 30px;
+    right: 30px;
+	box-shadow: $shadow-3;
+
+	svg {
+		margin: 0;
+	}
+}

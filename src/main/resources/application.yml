@@ -1,0 +1,26 @@
+spring:
+  profiles:
+    active: db_online_class_dev,db_online_class_dev-ons
+  application:
+    name: DatabaseOnlineCourseSpringBackend
+  servlet:
+    multipart:
+      #文件上传
+      enabled: true
+      #最大文件大小
+      max-file-size: 4096MB
+      #最大请求大小
+      max-request-size: 4096MB
+
+jasypt:
+  encryptor:
+    password: microdream_encryption
+    property:
+      prefix: MD_Pass(
+      suffix: )
+    algorithm: PBEWithMD5AndDES
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
+
+server:
+  port: 8081
+

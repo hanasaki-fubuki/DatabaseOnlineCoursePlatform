@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    username: root
+    password: MD_Pass(OCLQHSP+Og8Ffqlwhop7JA==)
+    url: jdbc:mysql://localhost:3306/database_online_class?useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver

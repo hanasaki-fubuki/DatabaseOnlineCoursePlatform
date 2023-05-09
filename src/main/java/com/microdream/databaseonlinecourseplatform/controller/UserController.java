@@ -1,9 +1,9 @@
-package com.microdream.databaseonlinecoursespringbackend.controller;
+package com.microdream.databaseonlinecourseplatform.controller;
 
-import com.microdream.databaseonlinecoursespringbackend.pojo.User;
-import com.microdream.databaseonlinecoursespringbackend.response.Result;
-import com.microdream.databaseonlinecoursespringbackend.service.SystemLogService;
-import com.microdream.databaseonlinecoursespringbackend.service.UserService;
+import com.microdream.databaseonlinecourseplatform.pojo.User;
+import com.microdream.databaseonlinecourseplatform.service.SystemLogService;
+import com.microdream.databaseonlinecourseplatform.service.UserService;
+import com.microdream.databaseonlinecourseplatform.response.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;

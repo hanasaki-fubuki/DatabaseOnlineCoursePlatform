@@ -1,7 +1,7 @@
-package com.microdream.databaseonlinecoursespringbackend.service;
+package com.microdream.databaseonlinecourseplatform.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.microdream.databaseonlinecoursespringbackend.pojo.SystemLog;
+import com.microdream.databaseonlinecourseplatform.pojo.SystemLog;
 
 /**
  * @author Hanasaki_Fubuki

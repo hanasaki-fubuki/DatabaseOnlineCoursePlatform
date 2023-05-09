@@ -1,7 +1,7 @@
-package com.microdream.databaseonlinecoursespringbackend.mapper;
+package com.microdream.databaseonlinecourseplatform.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.microdream.databaseonlinecoursespringbackend.pojo.SystemLog;
+import com.microdream.databaseonlinecourseplatform.pojo.SystemLog;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

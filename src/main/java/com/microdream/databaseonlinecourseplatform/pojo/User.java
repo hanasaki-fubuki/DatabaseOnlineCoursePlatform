@@ -1,4 +1,4 @@
-package com.microdream.databaseonlinecoursespringbackend.pojo;
+package com.microdream.databaseonlinecourseplatform.pojo;
 
 
 import com.baomidou.mybatisplus.annotation.TableName;

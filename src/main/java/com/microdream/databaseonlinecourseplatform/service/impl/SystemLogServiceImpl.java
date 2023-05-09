@@ -1,9 +1,9 @@
-package com.microdream.databaseonlinecoursespringbackend.service.impl;
+package com.microdream.databaseonlinecourseplatform.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.microdream.databaseonlinecoursespringbackend.pojo.SystemLog;
-import com.microdream.databaseonlinecoursespringbackend.mapper.SystemLogMapper;
-import com.microdream.databaseonlinecoursespringbackend.service.SystemLogService;
+import com.microdream.databaseonlinecourseplatform.pojo.SystemLog;
+import com.microdream.databaseonlinecourseplatform.mapper.SystemLogMapper;
+import com.microdream.databaseonlinecourseplatform.service.SystemLogService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

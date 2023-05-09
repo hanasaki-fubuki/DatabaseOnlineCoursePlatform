@@ -1,4 +1,4 @@
-package com.microdream.databaseonlinecoursespringbackend;
+package com.microdream.databaseonlinecourseplatform;
 
 import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import org.springframework.boot.SpringApplication;
@@ -9,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @EnableEncryptableProperties
-public class DatabaseOnlineCourseSpringBackendApplication {
+public class DatabaseOnlineCoursePlatformBackend {
 
     public static void main(String[] args) {
-        SpringApplication.run(DatabaseOnlineCourseSpringBackendApplication.class, args);
+        SpringApplication.run(DatabaseOnlineCoursePlatformBackend.class, args);
     }
 
 }

@@ -1,10 +1,10 @@
-package com.microdream.databaseonlinecoursespringbackend.service.impl;
+package com.microdream.databaseonlinecourseplatform.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.microdream.databaseonlinecoursespringbackend.pojo.User;
-import com.microdream.databaseonlinecoursespringbackend.mapper.UserMapper;
-import com.microdream.databaseonlinecoursespringbackend.service.UserService;
+import com.microdream.databaseonlinecourseplatform.pojo.User;
+import com.microdream.databaseonlinecourseplatform.mapper.UserMapper;
+import com.microdream.databaseonlinecourseplatform.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 import org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig;

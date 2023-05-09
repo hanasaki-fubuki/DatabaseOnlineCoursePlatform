@@ -1,4 +1,4 @@
-package com.microdream.databaseonlinecoursespringbackend.response;
+package com.microdream.databaseonlinecourseplatform.response;
 
 import lombok.Getter;
 import lombok.Setter;

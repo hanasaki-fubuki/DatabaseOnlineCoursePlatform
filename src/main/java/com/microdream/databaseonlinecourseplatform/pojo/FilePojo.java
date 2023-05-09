@@ -1,4 +1,4 @@
-package com.microdream.databaseonlinecoursespringbackend.pojo;
+package com.microdream.databaseonlinecourseplatform.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;
@@ -8,16 +8,17 @@ import org.springframework.stereotype.Component;
 /**
  * @author Hanasaki_Fubuki
  */
+
 @Component("fileInfo")
 @Getter
 @Setter
 @TableName("file_info")
-public class FileInfo {
+public class FilePojo {
 
-private int id;
+    private int id;
+
     private String filename;
-    private String path;
+    private int listNum;
     private String url;
-    private long size;
 
 }

@@ -136,7 +136,7 @@
           </a-button>
         </a-upload>
       </a-collapse-panel>
-      <a-collapse-panel key="19" header="6.1 基本概念">
+      <a-collapse-panel key="19" header="6.1 关系数据理论基本概念">
         <a-upload :file-list="fileList19" action="19" :customRequest="handleUpload" @preview="handleDownload" :remove="handleRemove">
           <a-button>
             上传本课程相关文件

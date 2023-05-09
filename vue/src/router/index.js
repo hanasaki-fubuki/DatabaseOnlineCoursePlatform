@@ -15,7 +15,7 @@ let routes = [
 		redirect: '/sign-in',
 	},
 	{
-		path: '/dashboard/:username',
+		path: '/dashboard',
 		name: '学习数据仪表板',
 		meta: {
 			roles: ['admin', 'maintenance', 'user']
@@ -27,7 +27,7 @@ let routes = [
 		component: () => import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue'),
 	},
 	{
-		path: '/courses/:username',
+		path: '/courses',
 		name: '课程学习页面',
 		meta: {
 			roles: ['admin', 'maintenance', 'user']
@@ -36,7 +36,7 @@ let routes = [
 		component: () => import('../views/Courses.vue'),
 	},
 	{
-		path: '/courses-manage/:username',
+		path: '/courses-manage',
 		name: '教师课程管理页面',
 		meta: {
 			roles: ['admin', 'maintenance', 'user']
@@ -45,7 +45,7 @@ let routes = [
 		component: () => import('../views/CoursesManage.vue'),
 	},
 	{
-		path: '/links/:username',
+		path: '/links',
 		name: '外部学习链接',
 		meta: {
 			roles: ['admin', 'maintenance', 'user']
@@ -54,7 +54,7 @@ let routes = [
 		component: () => import('../views/Links.vue'),
 	},
 	{
-		path: '/problems/:username',
+		path: '/problems',
 		name: '学生自主提问',
 		meta: {
 			roles: ['admin', 'maintenance', 'user']
@@ -72,7 +72,7 @@ let routes = [
 		component: () => import('../views/Administration.vue'),
 	},
 	{
-		path: '/profile/:username',
+		path: '/profile',
 		name: '您的个人资料',
 
 		layout: "dashboard",

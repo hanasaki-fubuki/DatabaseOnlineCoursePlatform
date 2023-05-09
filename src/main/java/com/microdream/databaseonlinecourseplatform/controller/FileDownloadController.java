@@ -28,6 +28,7 @@ public class FileDownloadController {
     @CrossOrigin
     @GetMapping("/{filename}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String filename) throws IOException {
+        log.info("开始下载文件：" + filename);
         // 获取文件
         File file = new File("D:/dboc_files/" + filename);
 

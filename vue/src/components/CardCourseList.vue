@@ -335,12 +335,12 @@ export default {
             for (let i = 1; i <= 30; i++) {
                 const response = await this.$axios.post('/file-list', { listNum: String(i) })
                     .then(response => {
+                        this.$message.info("正在更新文件列表" + i + "/30...")
                         console.log(response.data)
                         // 将获取到的fileList赋值给组件的fileList属性
                         this[`fileList${i}`] = response.data.map(file => {
                             return this.fileFormatter(file);
                         });
-                        console.log(this.fileList30)
                     })
                     .catch(error => {
                         console.log(error);

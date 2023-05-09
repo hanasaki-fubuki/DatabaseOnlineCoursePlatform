@@ -36,6 +36,15 @@ let routes = [
 		component: () => import('../views/Courses.vue'),
 	},
 	{
+		path: '/courses-manage/:username',
+		name: '教师课程管理页面',
+		meta: {
+			roles: ['admin', 'maintenance', 'user']
+		},
+		layout: "dashboard",
+		component: () => import('../views/CoursesManage.vue'),
+	},
+	{
 		path: '/links/:username',
 		name: '外部学习链接',
 		meta: {

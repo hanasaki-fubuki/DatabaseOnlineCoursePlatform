@@ -18,7 +18,7 @@
 
 			<!-- Sidebar Navigation Menu -->
 			<a-menu theme="light" mode="inline">
-				<a-menu-item>
+				<a-menu-item v-if="userRole === 0 || userRole === 1 || userRole === 2">
 					<router-link to="/dashboard">
 						<span class="icon">
 							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,7 +30,7 @@
 						<span class="label">学习数据仪表板</span>
 					</router-link>
 				</a-menu-item>
-				<a-menu-item>
+				<a-menu-item v-if="userRole === 0 || userRole === 2">
 					<router-link to="/courses">
 						<span class="icon">
 							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -38,10 +38,10 @@
 								<path fill-rule="evenodd" clip-rule="evenodd" d="M4 5C4 3.89543 4.89543 3 6 3C6 4.65685 7.34315 6 9 6H11C12.6569 6 14 4.65685 14 3C15.1046 3 16 3.89543 16 5V16C16 17.1046 15.1046 18 14 18H6C4.89543 18 4 17.1046 4 16V5ZM7 9C6.44772 9 6 9.44772 6 10C6 10.5523 6.44772 11 7 11H7.01C7.56228 11 8.01 10.5523 8.01 10C8.01 9.44772 7.56228 9 7.01 9H7ZM10 9C9.44772 9 9 9.44772 9 10C9 10.5523 9.44772 11 10 11H13C13.5523 11 14 10.5523 14 10C14 9.44772 13.5523 9 13 9H10ZM7 13C6.44772 13 6 13.4477 6 14C6 14.5523 6.44772 15 7 15H7.01C7.56228 15 8.01 14.5523 8.01 14C8.01 13.4477 7.56228 13 7.01 13H7ZM10 13C9.44772 13 9 13.4477 9 14C9 14.5523 9.44772 15 10 15H13C13.5523 15 14 14.5523 14 14C14 13.4477 13.5523 13 13 13H10Z" fill="#111827"/>
 							</svg>
 						</span>
-						<span class="label">课程学习页面</span>
+						<span class="label">学生课程学习页</span>
 					</router-link>
 				</a-menu-item>
-				<a-menu-item>
+				<a-menu-item v-if="userRole === 0 || userRole === 1">
 					<router-link to="/courses-manage">
 						<span class="icon">
 							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -49,17 +49,17 @@
 								<path fill-rule="evenodd" clip-rule="evenodd" d="M4 5C4 3.89543 4.89543 3 6 3C6 4.65685 7.34315 6 9 6H11C12.6569 6 14 4.65685 14 3C15.1046 3 16 3.89543 16 5V16C16 17.1046 15.1046 18 14 18H6C4.89543 18 4 17.1046 4 16V5ZM7 9C6.44772 9 6 9.44772 6 10C6 10.5523 6.44772 11 7 11H7.01C7.56228 11 8.01 10.5523 8.01 10C8.01 9.44772 7.56228 9 7.01 9H7ZM10 9C9.44772 9 9 9.44772 9 10C9 10.5523 9.44772 11 10 11H13C13.5523 11 14 10.5523 14 10C14 9.44772 13.5523 9 13 9H10ZM7 13C6.44772 13 6 13.4477 6 14C6 14.5523 6.44772 15 7 15H7.01C7.56228 15 8.01 14.5523 8.01 14C8.01 13.4477 7.56228 13 7.01 13H7ZM10 13C9.44772 13 9 13.4477 9 14C9 14.5523 9.44772 15 10 15H13C13.5523 15 14 14.5523 14 14C14 13.4477 13.5523 13 13 13H10Z" fill="#111827"/>
 							</svg>
 						</span>
-						<span class="label">教师课程管理页面</span>
+						<span class="label">教师课程管理页</span>
 					</router-link>
 				</a-menu-item>
-        <a-menu-item>
+        <a-menu-item v-if="userRole === 0 || userRole === 2">
           <router-link to="/problems">
 						<span class="icon">
 							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path fill-rule="evenodd" clip-rule="evenodd" d="M3 6C3 4.34315 4.34315 3 6 3H16C16.3788 3 16.725 3.214 16.8944 3.55279C17.0638 3.89157 17.0273 4.29698 16.8 4.6L14.25 8L16.8 11.4C17.0273 11.703 17.0638 12.1084 16.8944 12.4472C16.725 12.786 16.3788 13 16 13H6C5.44772 13 5 13.4477 5 14V17C5 17.5523 4.55228 18 4 18C3.44772 18 3 17.5523 3 17V6Z" fill="#111827"/>
 							</svg>
 						</span>
-            <span class="label">学生自主提问</span>
+            <span class="label">学生自主提问页</span>
           </router-link>
         </a-menu-item>
         <a-menu-item>
@@ -85,7 +85,7 @@
 						<span class="label">您的个人资料</span>
 					</router-link>
 				</a-menu-item>
-        <a-menu-item>
+        <a-menu-item v-if="userRole === 0">
           <router-link to="/administration">
 						<span class="icon">
 							<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -163,8 +163,12 @@
 		},
 		data() {
 			return {
-
+				userRole: null,
 			}
+		},
+		created() {
+			const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+			this.userRole = currentUser.role;
 		},
 		methods: {
 			logout() {

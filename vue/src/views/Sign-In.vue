@@ -124,7 +124,7 @@ export default ({
                 this.$router.replace({path: '/dashboard'})
 								this.$message.success('登录成功！')
               } else {
-                alert('用户名或密码错误！')
+                this.$message.error("用户名或密码错误！")
               }
             })
             .catch(failResponse => {})

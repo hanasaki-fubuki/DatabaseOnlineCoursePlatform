@@ -5,7 +5,7 @@
 		<template #title>
 			<a-row type="flex">
 				<a-col :span="24" :md="12">
-					<h5 class="font-semibold m-0">课程列表</h5>
+					<h5 class="font-semibold m-0">课程列表（检测到登录用户管理权限，开启教师管理模式）</h5>
 				</a-col>
 			</a-row>
 		</template>

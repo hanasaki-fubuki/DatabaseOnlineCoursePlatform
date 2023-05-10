@@ -17,9 +17,6 @@ let routes = [
 	{
 		path: '/dashboard',
 		name: '学习数据仪表板',
-		meta: {
-			roles: ['admin', 'maintenance', 'user']
-		},
 		layout: "dashboard",
 		// route level code-splitting
 		// this generates a separate chunk (about.[hash].js) for this route
@@ -28,66 +25,53 @@ let routes = [
 	},
 	{
 		path: '/courses',
-		name: '课程学习页面',
-		meta: {
-			roles: ['admin', 'maintenance', 'user']
-		},
+		name: '学生课程学习页',
 		layout: "dashboard",
 		component: () => import('../views/Courses.vue'),
 	},
 	{
 		path: '/courses-manage',
-		name: '教师课程管理页面',
-		meta: {
-			roles: ['admin', 'maintenance', 'user']
-		},
+		name: '教师课程管理页',
 		layout: "dashboard",
 		component: () => import('../views/CoursesManage.vue'),
 	},
 	{
 		path: '/links',
-		name: '外部学习链接',
-		meta: {
-			roles: ['admin', 'maintenance', 'user']
-		},
+		name: '外部学习链接页',
 		layout: "dashboard",
 		component: () => import('../views/Links.vue'),
 	},
 	{
 		path: '/problems',
-		name: '学生自主提问',
-		meta: {
-			roles: ['admin', 'maintenance', 'user']
-		},
+		name: '学生自主提问页',
 		layout: "dashboard",
 		component: () => import('../views/Problems.vue'),
 	},
 	{
+		path: '/solutions',
+		name: '教师统一答疑页',
+		layout: "dashboard",
+		component: () => import('../views/Solutions.vue'),
+	},
+	{
 		path: '/administration',
 		name: 'Administration',
-		meta: {
-			roles: ['admin', 'maintenance', 'user']
-		},
 		layout: "dashboard",
 		component: () => import('../views/Administration.vue'),
 	},
 	{
 		path: '/profile',
-		name: '您的个人资料',
+		name: '用户个人资料页',
 
 		layout: "dashboard",
 		meta: {
 			layoutClass: 'layout-profile',
-			roles: ['admin', 'maintenance', 'user']
 		},
 		component: () => import('../views/Profile.vue'),
 	},
 	{
 		path: '/sign-in',
 		name: 'Sign-In',
-		meta: {
-			roles: ['admin', 'maintenance', 'user']
-		},
 		component: () => import('../views/Sign-In.vue'),
 	},
 	{
@@ -95,7 +79,6 @@ let routes = [
 		name: 'Sign-Up',
 		meta: {
 			layoutClass: 'layout-sign-up',
-			roles: ['admin', 'maintenance', 'user']
 		},
 		component: () => import('../views/Sign-Up.vue'),
 	},
@@ -135,15 +118,5 @@ const router = new VueRouter({
 		}
 	}
 })
-const role = 'user'
-router.beforeEach((to,from,next)=>{
-	if (to.meta.roles.includes(role)) {
-		next()	//放行
-	} else {
-		alert("很抱歉，我们无法获取您的身份信息，亦或是您没有权限访问该页面。我们将为您跳转登录页面，您可以尝试重新登录以解决该问题。")
-		next({path:"/sign-in"})	//跳到登录页面
-	}
-})
-
 
 export default router

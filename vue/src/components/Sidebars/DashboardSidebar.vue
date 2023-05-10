@@ -65,7 +65,7 @@
             <span class="label">学生自主提问页</span>
           </router-link>
         </a-menu-item>
-				<a-menu-item v-if="userRole === 0 || userRole === 2">
+				<a-menu-item v-if="userRole === 0 || userRole === 1">
 					<router-link to="/solutions">
 						<span class="icon">
 							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

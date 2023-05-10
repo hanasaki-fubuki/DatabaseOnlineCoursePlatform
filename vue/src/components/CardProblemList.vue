@@ -59,7 +59,6 @@ export default {
 		}
 		this.$message.info('正在获取您的提问列表，请稍等...');
 		await this.fetchData();
-		this.$message.success('获取提问列表成功！');
 	},
 	methods: {
 		async fetchData() {
@@ -72,9 +71,11 @@ export default {
 							'Content-Type': 'multipart/form-data',
 						},})
 					.then(response => {
+						this.$message.success('获取提问列表成功！');
 						this.listData = response.data;
 					})
 					.catch(error => {
+						this.$message.error('获取提问列表失败！');
 						console.log(error);
 					});
 		},

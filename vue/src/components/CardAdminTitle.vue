@@ -1,6 +1,4 @@
 <template>
-
-	<!-- Master Card -->
 	<a-card class="card-credit header-solid h-full" style="background-image: url('images/info-card-3.jpg')">
 		<template #title>
 			<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 22.5 20.625">
@@ -12,7 +10,8 @@
 				</g>
 			</svg>
 		</template>
-		<h5 class="card-number">Microdream DB Online Course Platform</h5>
+		<h5>Microdream 数据库第四课堂学习平台管理页</h5>
+		<h6>Microdream Database Online Course Platform</h6>
 		
 		<div class="card-footer">
 			<div class="mr-30">
@@ -25,17 +24,13 @@
 			</div>
 		</div>
 	</a-card>
-	<!-- / Master Card -->
-
 </template>
 
 <script>
-
 	export default ({
 		data() {
 			return {
 			}
 		}
 	})
-
 </script>

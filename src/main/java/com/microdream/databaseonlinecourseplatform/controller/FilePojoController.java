@@ -3,6 +3,7 @@ package com.microdream.databaseonlinecourseplatform.controller;
 import com.microdream.databaseonlinecourseplatform.pojo.FilePojo;
 import com.microdream.databaseonlinecourseplatform.pojo.response.Result;
 import com.microdream.databaseonlinecourseplatform.service.FilePojoService;
+import com.microdream.databaseonlinecourseplatform.service.SystemLogService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,10 +21,14 @@ public class FilePojoController {
     @Resource
     FilePojoService filePojoService;
 
+    @Resource
+    SystemLogService systemLogService;
+
     @CrossOrigin
     @RequestMapping(value = "/file-upload", method = RequestMethod.POST)
     public Result fileUpload(@RequestParam("files") MultipartFile file, @RequestParam int listNum) {
         if (filePojoService.upload(file) && filePojoService.insertFilePojo(file, listNum, "http://localhost:8080/file/" + file.getOriginalFilename())) {
+            systemLogService.fileUploadSuccess(file.getOriginalFilename());
             log.info("已上传文件：课程章节 " + listNum + "，文件名：" + file.getOriginalFilename());
             return new Result(200);
         } else {
@@ -43,6 +48,7 @@ public class FilePojoController {
     @RequestMapping(value = "/file-delete", method = RequestMethod.POST)
     public Result deleteFile(@RequestParam("id") int id) {
         if (filePojoService.removeById(id)) {
+            systemLogService.fileRemoveSuccess(id);
             log.info("已删除文件：id" + id);
             return new Result(200);
         } else {

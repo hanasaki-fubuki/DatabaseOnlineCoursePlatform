@@ -3,6 +3,7 @@ package com.microdream.databaseonlinecourseplatform.controller;
 import com.microdream.databaseonlinecourseplatform.pojo.ProblemSolution;
 import com.microdream.databaseonlinecourseplatform.pojo.response.Result;
 import com.microdream.databaseonlinecourseplatform.service.ProblemSolutionService;
+import com.microdream.databaseonlinecourseplatform.service.SystemLogService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,9 @@ public class ProblemSolutionController {
 
     @Resource
     ProblemSolutionService problemSolutionService;
+
+    @Resource
+    SystemLogService systemLogService;
 
     @CrossOrigin
     @ResponseBody
@@ -40,6 +44,7 @@ public class ProblemSolutionController {
     @ResponseBody
     public Result submitProblem(@RequestBody ProblemSolution problem) {
         if (problemSolutionService.newProblem(problem)) {
+            systemLogService.problemCreated(problem.getUid());
             return new Result(200);
         } else {
             return new Result(400);
@@ -52,6 +57,7 @@ public class ProblemSolutionController {
     @RequestMapping(value = "/solve-problem", method = RequestMethod.POST)
     public Result solveProblem(@RequestBody ProblemSolution problemSolution) {
         if (problemSolutionService.solveProblem(problemSolution)) {
+            systemLogService.problemSolved(problemSolution.getUid());
             return new Result(200);
         } else {
             return new Result(400);

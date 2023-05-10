@@ -8,13 +8,12 @@ import org.springframework.stereotype.Component;
 /**
  * @author Hanasaki_Fubuki
  */
-@Component("problem")
+@Component("dashboardData")
 @Getter
 @Setter
-@TableName("problems_info")
-public class Problem {
+@TableName("dashboard_data")
+public class DashboardDataPojo {
 
-    private int id;
 
 
 }

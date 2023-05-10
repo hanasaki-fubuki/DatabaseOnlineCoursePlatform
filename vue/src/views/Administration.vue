@@ -14,7 +14,7 @@
 					<a-col :span="24" :xl="12" class="mb-24">
 
 						<!-- Master Card -->
-						<CardCredit></CardCredit>
+						<CardAdminTitle></CardAdminTitle>
 						<!-- / Master Card -->
 
 					</a-col>
@@ -62,7 +62,7 @@
 			<a-col :span="24" :md="16" class="mb-24">
 
 				<!-- Billing Information Card -->
-				<CardBillingInfo></CardBillingInfo>
+				<CardAdminUserTable></CardAdminUserTable>
 				<!-- / Billing Information Card -->
 
 			</a-col>
@@ -87,11 +87,11 @@
 
 <script>
 
-	import CardCredit from "../components/Cards/CardCredit"
+	import CardAdminTitle from "../components/CardAdminTitle.vue"
 	import WidgetSalary from "../components/Widgets/WidgetSalary"
 	import CardPaymentMethods from "../components/Cards/CardPaymentMethods"
 	import CardInvoices from "../components/Cards/CardInvoices"
-	import CardBillingInfo from "../components/Cards/CardBillingInfo"
+	import CardAdminUserTable from "../components/CardAdminUserTable.vue"
 	import CardTransactions from "../components/Cards/CardTransactions"
 
 
@@ -204,11 +204,11 @@
 
 	export default ({
 		components: {
-			CardCredit,
+			CardAdminTitle,
 			WidgetSalary,
 			CardPaymentMethods,
 			CardInvoices,
-			CardBillingInfo,
+			CardAdminUserTable,
 			CardTransactions,
 		},
 		data() {

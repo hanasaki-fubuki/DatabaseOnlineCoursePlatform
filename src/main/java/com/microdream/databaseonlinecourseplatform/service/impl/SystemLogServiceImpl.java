@@ -81,4 +81,52 @@ public class SystemLogServiceImpl extends ServiceImpl<SystemLogMapper, SystemLog
         systemLog.setLogTime(new Date());
         save(systemLog);
     }
+
+    @Override
+    public void userElevationSuccess(int uid) {
+        systemLog.setUid(uid);
+        systemLog.setEvent("User Privilege Successfully Elevated");
+        systemLog.setLogTime(new Date());
+        save(systemLog);
+    }
+
+    @Override
+    public void userDelevationSuccess(int uid) {
+        systemLog.setUid(uid);
+        systemLog.setEvent("User Privilege Successfully De-elevated");
+        systemLog.setLogTime(new Date());
+        save(systemLog);
+    }
+
+    @Override
+    public void fileUploadSuccess(String fileName) {
+        systemLog.setUid(-1);
+        systemLog.setEvent("File \"" + fileName + "\" Successfully Uploaded");
+        systemLog.setLogTime(new Date());
+        save(systemLog);
+    }
+
+    @Override
+    public void fileRemoveSuccess(int fileId) {
+        systemLog.setUid(-1);
+        systemLog.setEvent("File with ID \"" + fileId + "\" Successfully Removed");
+        systemLog.setLogTime(new Date());
+        save(systemLog);
+    }
+
+    @Override
+    public void problemCreated(int userId) {
+        systemLog.setUid(userId);
+        systemLog.setEvent("A New Problem Successfully Created");
+        systemLog.setLogTime(new Date());
+        save(systemLog);
+    }
+
+    @Override
+    public void problemSolved(int userId) {
+        systemLog.setUid(userId);
+        systemLog.setEvent("A Problem Successfully Solved");
+        systemLog.setLogTime(new Date());
+        save(systemLog);
+    }
 }

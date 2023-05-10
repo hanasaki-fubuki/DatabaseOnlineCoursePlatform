@@ -331,6 +331,7 @@ export default {
                         });
                     })
                     .catch(error => {
+                        this.$message.error("文件列表" + i + "/30获取失败！")
                         console.log(error);
                     });
             }
@@ -339,7 +340,6 @@ export default {
     async mounted() {
         this.$message.info("正在获取文件列表，请稍等！")
         await this.fetchData();
-        this.$message.success("文件列表获取成功！")
     }
 	}
 

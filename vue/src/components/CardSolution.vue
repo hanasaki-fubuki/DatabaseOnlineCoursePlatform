@@ -90,7 +90,6 @@ export default ({
 		}
 		this.$message.info('正在获取学生提问列表，请稍等...');
 		await this.fetchData();
-		this.$message.success('获取学生提问列表成功！')
 	},
 	methods: {
 		solve(e) {
@@ -123,9 +122,11 @@ export default ({
 			await this.$axios
 					.post('/problem-list')
 					.then(response => {
+						this.$message.success('获取学生提问列表成功！')
 						this.listData = response.data;
 					})
 					.catch(error => {
+						this.$message.error('获取学生提问列表失败！')
 						console.log(error);
 					});
 		},

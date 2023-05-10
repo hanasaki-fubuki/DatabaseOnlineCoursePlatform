@@ -53,7 +53,6 @@ public class FileDownloadController {
         headers.setContentType(MediaType.parseMediaType(mimeType));
 
         // 创建响应实体对象
-
         return new ResponseEntity<>(resource, headers, HttpStatus.OK);
     }
 

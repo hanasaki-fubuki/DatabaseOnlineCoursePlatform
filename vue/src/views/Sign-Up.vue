@@ -272,12 +272,12 @@ export default ({
           })
           .then(successResponse => {
             if (successResponse.data.code === 200) {
-              alert('注册成功！即将跳转登录页面......')
+                this.$message.success('注册成功！即将跳转登录页面......')
               this.$router.replace({path: '/sign-in'})
             } else if (successResponse.data.code === 100) {
-              alert('很抱歉，注册失败。用户名已存在。')
+                this.$message.error('很抱歉，注册失败。用户名已存在。')
             } else {
-              alert('很抱歉，出于未知原因，注册失败。请尝试联系系统管理员。')
+                this.$message.error('很抱歉，出于未知原因，注册失败。请尝试联系系统管理员。')
             }
           })
           .catch(failResponse => {})

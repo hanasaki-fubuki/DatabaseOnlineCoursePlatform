@@ -11,62 +11,30 @@ public interface SystemLogService extends IService<SystemLog> {
     /**
      * 添加用户登录成功日志
      * @param uid 用户id
+     * @param role 用户角色
      */
-    void userSignInSuccess(int uid);
+    void userSignInSuccess(int uid, int role);
 
     /**
      * 添加用户登录失败日志
      * @param uid 用户id
+     * @param role 用户角色
      */
-    void userSignInFailed(int uid);
+    void userSignInFailed(int uid, int role);
 
     /**
      * 添加用户密码更改成功日志
      * @param uid 用户id
+     * @param role 用户角色
      */
-    void userPassChangedSuccess(int uid);
+    void userPassChangedSuccess(int uid, int role);
 
     /**
      * 添加用户密码更改失败日志
      * @param uid 用户id
+     * @param role 用户角色
      */
-    void userPassChangedFailed(int uid);
-
-    /**
-     * 添加用户信息更改成功日志
-     * @param uid 用户id
-     */
-    void userProfileChangedSuccess(int uid);
-
-    /**
-     * 添加高权限用户登录成功日志
-     * @param uid 用户id
-     */
-    void privilegeSignInSuccess(int uid);
-
-    /**
-     * 添加高权限用户登录失败日志
-     * @param uid 用户id
-     */
-    void privilegeSignInFailed(int uid);
-
-    /**
-     * 添加高权限用户密码更改成功日志
-     * @param uid 用户id
-     */
-    void privilegePassChangedSuccess(int uid);
-
-    /**
-     * 添加高权限用户密码更改失败日志
-     * @param uid 用户id
-     */
-    void privilegePassChangedFailed(int uid);
-
-    /**
-     * 添加高权限用户信息更改成功日志
-     * @param uid 用户id
-     */
-    void privilegeProfileChangedSuccess(int uid);
+    void userPassChangedFailed(int uid, int role);
 
     /**
      * 添加用户注册成功日志

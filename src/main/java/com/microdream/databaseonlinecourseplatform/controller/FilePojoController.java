@@ -1,7 +1,7 @@
 package com.microdream.databaseonlinecourseplatform.controller;
 
 import com.microdream.databaseonlinecourseplatform.pojo.FilePojo;
-import com.microdream.databaseonlinecourseplatform.response.Result;
+import com.microdream.databaseonlinecourseplatform.pojo.response.Result;
 import com.microdream.databaseonlinecourseplatform.service.FilePojoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

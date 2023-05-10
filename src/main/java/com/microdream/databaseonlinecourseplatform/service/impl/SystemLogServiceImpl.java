@@ -18,14 +18,10 @@ public class SystemLogServiceImpl extends ServiceImpl<SystemLogMapper, SystemLog
 
     SystemLog systemLog = new SystemLog();
 
-    /**
-     * 添加用户登录成功日志
-     * @param uid 用户id
-     */
     @Override
-    public void userSignInSuccess(int uid) {
+    public void userSignInSuccess(int uid, int role) {
         systemLog.setUid(uid);
-        if (uid == 0) {
+        if (role == 0 || role == 1) {
             systemLog.setEventId(5);
         } else {
             systemLog.setEventId(0);
@@ -34,14 +30,10 @@ public class SystemLogServiceImpl extends ServiceImpl<SystemLogMapper, SystemLog
         save(systemLog);
     }
 
-    /**
-     * 添加用户登录失败日志
-     * @param uid 用户id
-     */
     @Override
-    public void userSignInFailed(int uid) {
+    public void userSignInFailed(int uid, int role) {
         systemLog.setUid(uid);
-        if (uid == 0) {
+        if (role == 0 || role == 1) {
             systemLog.setEventId(6);
         } else {
             systemLog.setEventId(1);
@@ -50,82 +42,30 @@ public class SystemLogServiceImpl extends ServiceImpl<SystemLogMapper, SystemLog
         save(systemLog);
     }
 
-    /**
-     * 添加用户修改密码成功日志
-     * @param uid 用户id
-     */
     @Override
-    public void userPassChangedSuccess(int uid) {
-
+    public void userPassChangedSuccess(int uid, int role) {
+        systemLog.setUid(uid);
+        if (role == 0 || role == 1) {
+            systemLog.setEventId(7);
+        } else {
+            systemLog.setEventId(2);
+        }
+        systemLog.setLogTime(new Date());
+        save(systemLog);
     }
 
-    /**
-     * 添加用户修改密码失败日志
-     * @param uid 用户id
-     */
     @Override
-    public void userPassChangedFailed(int uid) {
-
+    public void userPassChangedFailed(int uid, int role) {
+        systemLog.setUid(uid);
+        if (role == 0 || role == 1) {
+            systemLog.setEventId(8);
+        } else {
+            systemLog.setEventId(3);
+        }
+        systemLog.setLogTime(new Date());
+        save(systemLog);
     }
 
-    /**
-     * 添加用户修改个人信息成功日志
-     * @param uid 用户id
-     */
-    @Override
-    public void userProfileChangedSuccess(int uid) {
-
-    }
-
-    /**
-     * 添加高权限用户登录成功日志
-     * @param uid 用户id
-     */
-    @Override
-    public void privilegeSignInSuccess(int uid) {
-
-    }
-
-    /**
-     * 添加高权限用户登录失败日志
-     * @param uid 用户id
-     */
-    @Override
-    public void privilegeSignInFailed(int uid) {
-
-    }
-
-    /**
-     * 添加高权限用户修改密码成功日志
-     * @param uid 用户id
-     */
-    @Override
-    public void privilegePassChangedSuccess(int uid) {
-
-    }
-
-    /**
-     * 添加高权限用户修改密码失败日志
-     * @param uid 用户id
-     */
-    @Override
-    public void privilegePassChangedFailed(int uid) {
-
-    }
-
-    /**
-     * 添加高权限用户修改个人信息成功日志
-     * @param uid 用户id
-     */
-    @Override
-    public void privilegeProfileChangedSuccess(int uid) {
-
-    }
-
-    /**
-     * 添加用户注册成功日志
-     * @param uid 用户id
-     */
     @Override
     public void userSignUpSuccess(int uid) {
         systemLog.setUid(uid);
@@ -134,10 +74,6 @@ public class SystemLogServiceImpl extends ServiceImpl<SystemLogMapper, SystemLog
         save(systemLog);
     }
 
-    /**
-     * 添加用户注册失败日志
-     * @param uid 已存在用户名的用户id
-     */
     @Override
     public void usernameDuplicate(int uid) {
         systemLog.setUid(uid);

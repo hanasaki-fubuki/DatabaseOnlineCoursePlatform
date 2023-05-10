@@ -118,7 +118,11 @@ export default ({
             })
             .then(successResponse => {
               if (successResponse.data.code === 200) {
-                this.$router.replace({path: '/dashboard/'+this.form.getFieldValue('username')})
+								console.log(successResponse.data)
+								// 保存sessionStorage
+								sessionStorage.setItem('currentUser', JSON.stringify(successResponse.data.obj));
+                this.$router.replace({path: '/dashboard'})
+								this.$message.success('登录成功！')
               } else {
                 alert('用户名或密码错误！')
               }

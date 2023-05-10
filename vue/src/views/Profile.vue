@@ -17,16 +17,9 @@
 					<a-col :span="24" :md="12" class="col-info">
 						<a-avatar :size="74" shape="square" src="images/face-1.jpg" />
 						<div class="avatar-info">
-							<h4 class="font-semibold m-0">Sarah Jacob</h4>
-							<p>CEO / Co-Founder</p>
+							<h4 class="font-semibold m-0">{{ userInfo.name }}</h4>
+							<p>用户角色：{{ roleMapping[userInfo.role] }}</p>
 						</div>
-					</a-col>
-					<a-col :span="24" :md="12" style="display: flex; align-items: center; justify-content: flex-end">
-						<a-radio-group v-model="profileHeaderBtns" size="small">
-							<a-radio-button value="overview">OVERVIEW</a-radio-button>
-							<a-radio-button value="teams">TEAMS</a-radio-button>
-							<a-radio-button value="projects">PROJECTS</a-radio-button>
-						</a-radio-group>
 					</a-col>
 				</a-row>
 			</template>
@@ -35,18 +28,8 @@
 
 		<a-row type="flex" :gutter="24">
 
-			<!-- Platform Settings Column -->
-			<a-col :span="24" :md="8" class="mb-24">
-
-				<!-- Platform Settings Card -->
-				<CardPlatformSettings></CardPlatformSettings>
-				<!-- / Platform Settings Card -->
-
-			</a-col>
-			<!-- / Platform Settings Column -->
-
 			<!-- Profile Information Column -->
-			<a-col :span="24" :md="8" class="mb-24">
+			<a-col :span="24" :md="12" class="mb-24">
 
 				<!-- Profile Information Card -->
 				<CardProfileInformation></CardProfileInformation>
@@ -54,18 +37,10 @@
 
 			</a-col>
 			<!-- / Profile Information Column -->
-			
-			<!-- Conversations Column -->
-			<a-col :span="24" :md="8" class="mb-24">
-			
-				<!-- Conversations Card -->
-				<CardConversations
-					:data="conversationsData"
-				></CardConversations>
-				<!-- / Conversations Card -->
 
+			<a-col :span="24" :md="12" class="mb-24">
+				<CardChangePassword></CardChangePassword>
 			</a-col>
-			<!-- / Conversations Column -->
 
 		</a-row>
 		
@@ -126,44 +101,9 @@
 
 <script>
 
-	import CardPlatformSettings from "../components/Cards/CardPlatformSettings"
-	import CardProfileInformation from "../components/Cards/CardProfileInformation"
-	import CardConversations from "../components/Cards/CardConversations"
+	import CardChangePassword from "../components/CardChangePassword.vue"
+	import CardProfileInformation from "../components/CardProfileInformation.vue"
 	import CardProject from "../components/Cards/CardProject"
-
-	// Conversation's list data.
-	const conversationsData = [
-		{
-			id: "1",
-			title: "Sophie B.",
-			code: "Hi! I need more information…",
-			avatar: "images/face-3.jpg",
-		},
-		{
-			id: "2",
-			title: "Anne Marie",
-			code: "Awesome work, can you…",
-			avatar: "images/face-4.jpg",
-		},
-		{
-			id: "3",
-			title: "Ivan",
-			code: "About files I can…",
-			avatar: "images/face-5.jpeg",
-		},
-		{
-			id: "4",
-			title: "Peterson",
-			code: "Have a great afternoon…",
-			avatar: "images/face-6.jpeg",
-		},
-		{
-			id: "5",
-			title: "Nick Daniel",
-			code: "Hi! I need more information…",
-			avatar: "images/face-2.jpg",
-		},
-	] ;
 
 	// Project cards data
 	const projects = [
@@ -207,23 +147,34 @@
 
 	export default ({
 		components: {
-			CardPlatformSettings,
+			CardChangePassword,
 			CardProfileInformation,
-			CardConversations,
 			CardProject,
+		},
+		async fetchData() {
+			const username = window.sessionStorage.getItem('username')
 		},
 		data() {
 			return {
-				// Active button for the "User Profile" card's radio button group.
-				profileHeaderBtns: 'overview',
-
-				// Associating Conversation's list data with its corresponding property.
-				conversationsData,
-
 				// Project cards data
 				projects,
+				userInfo: {},
+				roleMapping: {
+					0: '超级管理员/维护',
+					1: '教师/课程管理员',
+					2: '学生/普通用户',
+				},
 			}
 		},
+		created() {
+			const userStr = sessionStorage.getItem("currentUser");
+			if (userStr) {
+				this.userInfo = JSON.parse(userStr);
+			}
+		},
+		async mounted() {
+
+		}
 	})
 
 </script>

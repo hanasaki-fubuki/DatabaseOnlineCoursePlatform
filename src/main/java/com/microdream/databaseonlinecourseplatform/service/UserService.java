@@ -21,6 +21,7 @@ public interface UserService extends IService<User> {
      * @return 用户角色
      */
     int getRoleByUsername(String username);
+
     /**
      * 用户登录验证函数
      * @param user 要登录的用户实体
@@ -34,5 +35,14 @@ public interface UserService extends IService<User> {
      * @return 注册成功的用户实体
      */
     int signUp(User user);
+
+    /**
+     * 用户修改密码函数
+     * @param user 用户实体
+     * @param oriPassword 原密码
+     * @param newPassword 新密码
+     * @return 修改成功的用户实体
+     */
+    boolean changePass(User user, String oriPassword, String newPassword);
 
 }

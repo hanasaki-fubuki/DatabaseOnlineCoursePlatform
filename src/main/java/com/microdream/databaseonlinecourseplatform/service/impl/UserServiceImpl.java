@@ -89,4 +89,27 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
 
     }
+
+    @Override
+    public boolean changePass(User user, String oriPassword, String newPassword) {
+        StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
+        EnvironmentStringPBEConfig config = new EnvironmentStringPBEConfig();
+        config.setAlgorithm(encAlgo);
+        config.setPassword(encPass);
+        encryptor.setConfig(config);
+        QueryWrapper<User> changePasswordQueryWrapper = new QueryWrapper<>();
+        changePasswordQueryWrapper.eq("username", user.getUsername());
+        User targetUser = getOne(changePasswordQueryWrapper);
+        if (targetUser != null) {
+            if (encryptor.decrypt(targetUser.getPassword()).equals(oriPassword)) {
+                targetUser.setPassword(encryptor.encrypt(newPassword));
+                updateById(targetUser);
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
 }

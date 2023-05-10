@@ -23,7 +23,7 @@
 		</a-col>
 		<a-form :form="form" @submit="handleSubmit">
 			<ul class="list settings-list">
-				<p class="text-left mb-5 font-semibold">问题描述</p>
+				<p class="text-left mb-5 font-semibold">主题</p>
 				<a-form-item class="mb-10" :validate-status="subjectError() ? 'error' : ''" :help="subjectError() || ''">
 					<a-input
 							v-decorator="[

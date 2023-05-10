@@ -7,7 +7,12 @@
     <div>
         <a-row :gutter="24" type="flex">
             <a-col :span="24" class="mb-24">
-                <CardProjectTable2></CardProjectTable2>
+                <CardNewProblem></CardNewProblem>
+            </a-col>
+        </a-row>
+        <a-row :gutter="24" type="flex">
+            <a-col :span="24" class="mb-24">
+                <CardProblemList></CardProblemList>
             </a-col>
         </a-row>
     </div>
@@ -15,11 +20,13 @@
 
 <script>
 
-import CardProjectTable2 from '../components/Cards/CardProjectTable2' ;
+import CardNewProblem from '../components/CardNewProblem.vue' ;
+import CardProblemList from "@/components/Cards/CardProblemList.vue";
 
 export default ({
     components: {
-        CardProjectTable2,
+        CardNewProblem,
+        CardProblemList,
     },
     data() {
         return {

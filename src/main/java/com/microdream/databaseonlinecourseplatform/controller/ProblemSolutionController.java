@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author Hanasaki_Fubuki
@@ -19,6 +20,13 @@ public class ProblemSolutionController {
 
     @Resource
     ProblemSolutionService problemSolutionService;
+
+    @CrossOrigin
+    @ResponseBody
+    @RequestMapping(value = "/user-problem-list", method = RequestMethod.POST)
+    public List<ProblemSolution> getUserProblemList(@RequestParam("uid") Integer uid) {
+        return problemSolutionService.getUserProblemList(uid);
+    }
 
     @CrossOrigin
     @RequestMapping(value = "/submit-problem", method = RequestMethod.POST)

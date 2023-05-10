@@ -12,19 +12,16 @@
 				</g>
 			</svg>
 		</template>
-		<h5 class="card-number">4562 1122 4594 7852</h5>
+		<h5 class="card-number">Microdream DB Online Course Platform</h5>
 		
 		<div class="card-footer">
 			<div class="mr-30">
-				<p>Card Holder</p>
-				<h6>Jack Peterson</h6>
+				<p>超级管理员</p>
+				<h6>Hanasaki Fubuki</h6>
 			</div>
 			<div class="mr-30">
-				<p>Expires</p>
-				<h6>11/22</h6>
-			</div>
-			<div class="card-footer-col col-logo ml-auto">
-				<img src="images/logos/mastercard-logo.png">
+				<p>系统开发完成时间</p>
+				<h6>5/11/2023</h6>
 			</div>
 		</div>
 	</a-card>

@@ -2,7 +2,7 @@
 
 	<!-- Salary Card -->
 	<a-card :bordered="false" class="widget-2 h-full">
-		<a-statistic :value="value" :prefix="prefix">
+		<a-statistic :value="value">
 			<template #title>
 				<div class="icon" v-html="icon"></div>
 				<h6>{{ title }}</h6>
@@ -19,12 +19,8 @@
 	export default ({
 		props: {
 			value: {
-				type: Number,
-				default: 0,
-			},
-			prefix: {
 				type: String,
-				default: "+$",
+				default: 0,
 			},
 			icon: {
 				type: String,

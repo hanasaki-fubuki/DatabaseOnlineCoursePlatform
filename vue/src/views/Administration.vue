@@ -18,16 +18,16 @@
 						<!-- / Master Card -->
 
 					</a-col>
-					<a-col :span="12" :xl="6" class="mb-24" v-for="(salary, index) in salaries" :key="index">
+					<a-col :span="12" :xl="6" class="mb-24" v-for="(salary, index) in adminStatus" :key="index">
 
 						<!-- Salary Card -->
-						<WidgetSalary
+						<AdminStatus
 							:value="salary.value"
 							:prefix="salary.prefix"
 							:icon="salary.icon"
 							:title="salary.title"
 							:content="salary.content"
-						></WidgetSalary>
+						></AdminStatus>
 						<!-- / Salary Card -->
 
 					</a-col>
@@ -88,7 +88,7 @@
 <script>
 
 	import CardAdminTitle from "../components/CardAdminTitle.vue"
-	import WidgetSalary from "../components/Widgets/WidgetSalary"
+	import AdminStatus from "../components/AdminStatus.vue"
 	import CardPaymentMethods from "../components/Cards/CardPaymentMethods"
 	import CardInvoices from "../components/Cards/CardInvoices"
 	import CardAdminUserTable from "../components/CardAdminUserTable.vue"
@@ -96,10 +96,9 @@
 
 
 	// Salary cards data
-	const salaries = [
+	const adminStatus = [
 		{
-			value: 2000,
-			prefix: "+$",
+			value: "正常运行",
 			icon: `
 										<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
 											<g id="bank" transform="translate(0.75 0.75)">
@@ -108,16 +107,21 @@
 												<path id="Path-2" data-name="Path" d="M0,.707H20.5" transform="translate(0 19.793)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
 											</g>
 										</svg>`,
-			title: "Salary",
-			content: "Belong Interactive",
+			title: "系统运行状态",
+			content: "This module is not working. ",
 		},
 		{
-			value: 49000,
-			prefix: "+$",
+			value: "正常运行",
 			icon: `
-										<img src="images/logos/paypal-logo-2.png" alt="">`,
-			title: "Paypal",
-			content: "Freelance Payment",
+										<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+											<g id="bank" transform="translate(0.75 0.75)">
+												<path id="Shape" transform="translate(0.707 9.543)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+												<path id="Path" d="M10.25,0,20.5,9.19H0Z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+												<path id="Path-2" data-name="Path" d="M0,.707H20.5" transform="translate(0 19.793)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+											</g>
+										</svg>`,
+			title: "数据库状态",
+			content: "This module is not working. ",
 		},
 	] ;
 
@@ -205,7 +209,7 @@
 	export default ({
 		components: {
 			CardAdminTitle,
-			WidgetSalary,
+			AdminStatus,
 			CardPaymentMethods,
 			CardInvoices,
 			CardAdminUserTable,
@@ -213,8 +217,7 @@
 		},
 		data() {
 			return {
-				// Salary cards data
-				salaries,
+				adminStatus,
 
 				// Associating "Invoices" list data with its corresponding property.
 				invoiceData,

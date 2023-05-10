@@ -98,7 +98,7 @@
 						<span class="label">用户个人资料页</span>
 					</router-link>
 				</a-menu-item>
-				<a-menu-item class="menu-item-header">
+				<a-menu-item class="menu-item-header" v-if="userRole === 0">
 					AUTHORIZED ACCESS ONLY
 				</a-menu-item>
 				<a-menu-item v-if="userRole === 0">

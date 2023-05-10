@@ -23,6 +23,13 @@ public class ProblemSolutionController {
 
     @CrossOrigin
     @ResponseBody
+    @RequestMapping(value = "/problem-list", method = RequestMethod.POST)
+    public List<ProblemSolution> getUnsolvedProblemList() {
+        return problemSolutionService.getUnsolvedProblemList();
+    }
+
+    @CrossOrigin
+    @ResponseBody
     @RequestMapping(value = "/user-problem-list", method = RequestMethod.POST)
     public List<ProblemSolution> getUserProblemList(@RequestParam("uid") Integer uid) {
         return problemSolutionService.getUserProblemList(uid);
@@ -38,6 +45,17 @@ public class ProblemSolutionController {
             return new Result(400);
         }
 
+    }
+
+    @CrossOrigin
+    @ResponseBody
+    @RequestMapping(value = "/solve-problem", method = RequestMethod.POST)
+    public Result solveProblem(@RequestBody ProblemSolution problemSolution) {
+        if (problemSolutionService.solveProblem(problemSolution)) {
+            return new Result(200);
+        } else {
+            return new Result(400);
+        }
     }
 
 }

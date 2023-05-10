@@ -23,7 +23,7 @@ public interface ProblemSolutionService extends IService<ProblemSolution> {
      * @param solution 问题解决方案
      * @return 是否成功
      */
-    boolean solveProblem(ProblemSolution problemSolution, String solution);
+    boolean solveProblem(ProblemSolution problemSolution);
 
     /**
      * 获取用户提问的知识点列表
@@ -31,5 +31,11 @@ public interface ProblemSolutionService extends IService<ProblemSolution> {
      * @return 单用户对应的知识点列表
      */
     List<ProblemSolution> getUserProblemList(int uid);
+
+    /**
+     * 获取未解决的知识点列表
+     * @return 未解决的知识点列表
+     */
+    List<ProblemSolution> getUnsolvedProblemList();
 
 }

@@ -24,8 +24,7 @@ public class ProblemSolutionServiceImpl extends ServiceImpl<ProblemSolutionMappe
     }
 
     @Override
-    public boolean solveProblem(ProblemSolution problemSolution, String solution) {
-        problemSolution.setSolution(solution);
+    public boolean solveProblem(ProblemSolution problemSolution) {
         return updateById(problemSolution);
     }
 
@@ -33,6 +32,13 @@ public class ProblemSolutionServiceImpl extends ServiceImpl<ProblemSolutionMappe
     public List<ProblemSolution> getUserProblemList(int uid) {
         QueryWrapper<ProblemSolution> qw = new QueryWrapper<>();
         qw.eq("uid", uid).orderByDesc("id");
+        return list(qw);
+    }
+
+    @Override
+    public List<ProblemSolution> getUnsolvedProblemList() {
+        QueryWrapper<ProblemSolution> qw = new QueryWrapper<>();
+        qw.isNull("solution");
         return list(qw);
     }
 }

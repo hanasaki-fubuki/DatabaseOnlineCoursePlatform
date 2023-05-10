@@ -3,7 +3,7 @@
 		<template #title>
 			<a-row type="flex">
 				<a-col :span="24" :md="12">
-					<h5 class="font-semibold m-0">学生自主提问</h5>
+					<h5 class="font-semibold m-0">自主提问</h5>
 				</a-col>
 			</a-row>
 		</template>

@@ -19,6 +19,7 @@
 					<p>提问时间：{{ item.submitTime }}</p>
 					<p>问题描述：{{ item.content }}</p>
 					<p>教师给出的解决方案：{{ item.solution }}</p>
+					<p>该提问条目唯一识别码：{{ item.id }}</p>
 				</a-list-item>
 			</a-list>
 		</template>
@@ -51,19 +52,21 @@ export default {
 			},
 		};
 	},
-	mounted() {
+	async mounted() {
 		const userStr = sessionStorage.getItem("currentUser");
 		if (userStr) {
 			this.userInfo = JSON.parse(userStr);
 		}
-		this.fetchData();
+		this.$message.info('正在获取您的提问列表，请稍等...');
+		await this.fetchData();
+		this.$message.success('获取提问列表成功！');
 	},
 	methods: {
-		fetchData() {
+		async fetchData() {
 			console.log(this.userInfo.id)
 			const formData = new FormData();
 			formData.append('uid', this.userInfo.id);
-			this.$axios
+			await this.$axios
 					.post('/user-problem-list', formData, {
 						headers: {
 							'Content-Type': 'multipart/form-data',

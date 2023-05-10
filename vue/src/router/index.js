@@ -72,11 +72,27 @@ let routes = [
 	{
 		path: '/sign-in',
 		name: 'Sign-In',
+		beforeEnter: (to, from, next) => {
+			const isLoggedIn = window.sessionStorage.getItem('currentUser')
+			if (isLoggedIn) {
+				next('/dashboard')
+			} else {
+				next()
+			}
+		},
 		component: () => import('../views/Sign-In.vue'),
 	},
 	{
 		path: '/sign-up',
 		name: 'Sign-Up',
+		beforeEnter: (to, from, next) => {
+			const isLoggedIn = window.sessionStorage.getItem('currentUser')
+			if (isLoggedIn) {
+				next('/dashboard')
+			} else {
+				next()
+			}
+		},
 		meta: {
 			layoutClass: 'layout-sign-up',
 		},
@@ -119,13 +135,15 @@ const router = new VueRouter({
 	}
 })
 router.beforeEach((to, from, next) => {
-	const isAuthenticated = window.sessionStorage.getItem('currentUser');
-	if (to.path !== '/sign-in' && !isAuthenticated) {
-		// 如果未登录且访问的不是登录页面，则跳转到登录页面
-		next('/sign-in');
-	} else {
-		// 否则放行
+	if (to.path === '/sign-in' || to.path === '/sign-up') { // 放行注册和登录页面
 		next();
+	} else {
+		const user = JSON.parse(window.sessionStorage.getItem('currentUser'));
+		if (user) { // 用户已登录，放行
+			next();
+		} else { // 用户未登录，跳转到登录页面
+			next('/sign-in');
+		}
 	}
 });
 

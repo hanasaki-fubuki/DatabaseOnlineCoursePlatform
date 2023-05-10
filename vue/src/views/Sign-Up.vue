@@ -170,6 +170,7 @@
             若要注册，您必须同意 <a href="#" class="font-bold text-dark">用户协议与许可条款</a>
           </a-checkbox>
         </a-form-item>
+          <h6 style="color: red">*教师用户注册完成后请联系管理员提权！</h6>
         <a-form-item>
           <a-button type="primary" block html-type="submit" class="login-form-button"  v-on:click="signup()" :disabled="hasErrors(form.getFieldsError())">
             立即注册

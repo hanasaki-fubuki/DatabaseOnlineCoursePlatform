@@ -104,6 +104,7 @@ export default ({
         return isFieldTouched('password') && getFieldError('password');
       },
       signin () {
+				this.$message.info('正在尝试登录，请稍候！')
         this.$axios
             .post('/sign-in', {
               username: this.form.getFieldValue('username'),

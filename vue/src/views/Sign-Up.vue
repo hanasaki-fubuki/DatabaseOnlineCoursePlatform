@@ -256,6 +256,7 @@ export default ({
       return isFieldTouched('passwordConf') && getFieldError('passwordConf');
     },
     signup() {
+        this.$message.info('正在尝试注册，请稍候！')
       this.$axios
           .post('/sign-up', {
             username: this.form.getFieldValue('username'),
@@ -272,7 +273,7 @@ export default ({
           })
           .then(successResponse => {
             if (successResponse.data.code === 200) {
-                this.$message.success('注册成功！即将跳转登录页面......')
+                this.$message.success('注册成功！即将跳转登录页面！')
               this.$router.replace({path: '/sign-in'})
             } else if (successResponse.data.code === 100) {
                 this.$message.error('很抱歉，注册失败。用户名已存在。')

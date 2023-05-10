@@ -129,6 +129,7 @@ export default ({
 	},
 	methods: {
 		submit() {
+			this.$message.info('正在提交，请稍候！')
 			this.$axios
 					.post('/submit-problem', {
 						uid: this.userInfo.id,

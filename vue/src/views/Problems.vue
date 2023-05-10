@@ -21,7 +21,7 @@
 <script>
 
 import CardNewProblem from '../components/CardNewProblem.vue' ;
-import CardProblemList from "@/components/Cards/CardProblemList.vue";
+import CardProblemList from "../components/CardProblemList.vue";
 
 export default ({
     components: {

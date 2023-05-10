@@ -138,6 +138,7 @@ function hasErrors(fieldsError) {
 				}
 			},
 			changePass() {
+				this.$message.info('正在尝试修改密码，请稍候！')
 				this.$axios
 						.post('/change-pass', {
 							user: this.userInfo,
@@ -157,7 +158,7 @@ function hasErrors(fieldsError) {
 								window.sessionStorage.clear()
 								this.$router.replace({path: '/sign-in'})
 							} else {
-								alert('原密码错误，密码修改失败！')
+								this.$message.error('原密码错误，密码修改失败！')
 							}
 						})
 						.catch(failResponse => {})

@@ -22,9 +22,9 @@ public class SystemLogServiceImpl extends ServiceImpl<SystemLogMapper, SystemLog
     public void userSignInSuccess(int uid, int role) {
         systemLog.setUid(uid);
         if (role == 0 || role == 1) {
-            systemLog.setEventId(5);
+            systemLog.setEvent("High Privilege Account Access Successfully Granted");
         } else {
-            systemLog.setEventId(0);
+            systemLog.setEvent("User Access Successfully Granted");
         }
         systemLog.setLogTime(new Date());
         save(systemLog);
@@ -34,9 +34,9 @@ public class SystemLogServiceImpl extends ServiceImpl<SystemLogMapper, SystemLog
     public void userSignInFailed(int uid, int role) {
         systemLog.setUid(uid);
         if (role == 0 || role == 1) {
-            systemLog.setEventId(6);
+            systemLog.setEvent("Unauthorized High Privilege Account Login Attempt");
         } else {
-            systemLog.setEventId(1);
+            systemLog.setEvent("Unauthorized User Login Attempt");
         }
         systemLog.setLogTime(new Date());
         save(systemLog);
@@ -46,9 +46,9 @@ public class SystemLogServiceImpl extends ServiceImpl<SystemLogMapper, SystemLog
     public void userPassChangedSuccess(int uid, int role) {
         systemLog.setUid(uid);
         if (role == 0 || role == 1) {
-            systemLog.setEventId(7);
+            systemLog.setEvent("High Privilege Account Password Successfully Changed");
         } else {
-            systemLog.setEventId(2);
+            systemLog.setEvent("User Password Successfully Changed");
         }
         systemLog.setLogTime(new Date());
         save(systemLog);
@@ -58,9 +58,9 @@ public class SystemLogServiceImpl extends ServiceImpl<SystemLogMapper, SystemLog
     public void userPassChangedFailed(int uid, int role) {
         systemLog.setUid(uid);
         if (role == 0 || role == 1) {
-            systemLog.setEventId(8);
+            systemLog.setEvent("Unauthorized High Privilege Account Password Change Attempt");
         } else {
-            systemLog.setEventId(3);
+            systemLog.setEvent("Unauthorized User Password Change Attempt");
         }
         systemLog.setLogTime(new Date());
         save(systemLog);
@@ -69,7 +69,7 @@ public class SystemLogServiceImpl extends ServiceImpl<SystemLogMapper, SystemLog
     @Override
     public void userSignUpSuccess(int uid) {
         systemLog.setUid(uid);
-        systemLog.setEventId(10);
+        systemLog.setEvent("New Account Successfully Registered");
         systemLog.setLogTime(new Date());
         save(systemLog);
     }
@@ -77,7 +77,7 @@ public class SystemLogServiceImpl extends ServiceImpl<SystemLogMapper, SystemLog
     @Override
     public void usernameDuplicate(int uid) {
         systemLog.setUid(uid);
-        systemLog.setEventId(11);
+        systemLog.setEvent("Newly Registered Account Duplicated With Existing One");
         systemLog.setLogTime(new Date());
         save(systemLog);
     }

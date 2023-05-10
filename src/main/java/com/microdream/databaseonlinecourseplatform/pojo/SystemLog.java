@@ -18,6 +18,6 @@ public class SystemLog {
     private int id;
     private int uid;
     private Date logTime;
-    private int eventId;
+    private String event;
 
 }

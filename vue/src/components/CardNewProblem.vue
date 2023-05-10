@@ -131,7 +131,7 @@ export default ({
 		submit() {
 			this.$axios
 					.post('/submit-problem', {
-						uid: this.userInfo.uid,
+						uid: this.userInfo.id,
 						subject: this.form.getFieldValue('subject'),
 						chapter: this.form.getFieldValue('chapter'),
 						content: this.form.getFieldValue('content'),

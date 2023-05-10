@@ -108,7 +108,7 @@
 											</g>
 										</svg>`,
 			title: "系统运行状态",
-			content: "This module is not working. ",
+			content: "This is currently a fake module. ",
 		},
 		{
 			value: "正常运行",
@@ -121,7 +121,7 @@
 											</g>
 										</svg>`,
 			title: "数据库状态",
-			content: "This module is not working. ",
+			content: "This is currently a fake module. ",
 		},
 	] ;
 

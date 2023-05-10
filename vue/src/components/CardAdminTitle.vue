@@ -15,8 +15,8 @@
 		
 		<div class="card-footer">
 			<div class="mr-30">
-				<p>超级管理员</p>
-				<h6>Hanasaki Fubuki</h6>
+				<p>贾孟昀</p>
+				<h6>190341213</h6>
 			</div>
 			<div class="mr-30">
 				<p>系统开发完成时间</p>

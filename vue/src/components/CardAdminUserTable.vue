@@ -3,7 +3,7 @@
 	<!-- Billing Information Card -->
 	<a-card :bordered="false" class="header-solid h-full" :bodyStyle="{paddingTop: 0, paddingBottom: '16px' }">
 		<template #title>
-			<h6 class="font-semibold m-0">用户数据表</h6>
+			<h6 class="font-semibold m-0">用户数据表（为保护用户隐私，此处不显示年龄、性别等敏感信息，并将密码加密处理，不显示明文）</h6>
 		</template>
 		<template>
 			<a-list item-layout="vertical" size="large" :pagination="pagination" :data-source="userListData" :split="false">

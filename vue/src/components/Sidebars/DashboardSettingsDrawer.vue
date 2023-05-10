@@ -56,7 +56,7 @@
 				<a-button type="secondary" href="mailto:support@microdream.tech" block target="_blank">邮箱联系我们</a-button>
 			</div>
 			<div class="github-stars">
-				<gh-btns-star slug="hanasaki-fubuki/database_online_class_antd_frontend" show-count></gh-btns-star>
+				<gh-btns-star slug="hanasaki-fubuki/DatabaseOnlineCoursePlatform" show-count></gh-btns-star>
 			</div>
 			<div class="sharing">
 				<h6>如果您觉得不错，记得分享学习平台哦！</h6>

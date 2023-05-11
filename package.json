@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "vue-video-player": "^6.0.0"
+  }
+}

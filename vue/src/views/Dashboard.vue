@@ -13,7 +13,6 @@
 					:title="stat.title"
 					:value="stat.value"
 					:suffix="stat.suffix"
-					:status="stat.status"
 				></WidgetCounter>
 				<!-- / Widget 1 Card -->
 			</a-col>
@@ -39,31 +38,6 @@
 	import CardCourseHeat from '../components/Cards/CardCourseHeat.vue' ;
 	import CardUpdateLog from '../components/Cards/CardUpdateLog.vue' ;
 
-	// Counter Widgets stats
-	const stats = [
-		{
-			title: "课程总点击量",
-			value: 53000,
-			suffix: "次课程点击",
-		},
-		{
-			title: "登录用户总次数",
-			value: 3200,
-			suffix: "次登录",
-		},
-		{
-			title: "当前课程文件数",
-			value: 1200,
-			suffix: "个课程文件",
-		},
-		{
-			title: "总用户数",
-			value: 13200,
-			suffix: "位用户",
-		},
-	] ;
-
-
 	export default ({
 		components: {
 			WidgetCounter,
@@ -72,9 +46,23 @@
 		},
 		data() {
 			return {
-				// Counter Widgets Stats
-				stats,
+				stats: [],
 			}
+		},
+		methods: {
+			async fetchData() {
+				await this.$axios
+						.post('/dashboard-counter')
+						.then(response => {
+							this.stats = response.data;
+						})
+						.catch(error => {
+							console.log(error);
+						});
+			},
+		},
+		async mounted() {
+			await this.fetchData();
 		},
 	})
 

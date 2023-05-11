@@ -1,12 +1,13 @@
 package com.microdream.databaseonlinecourseplatform.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.microdream.databaseonlinecourseplatform.mapper.CourseClickMapper;
-import com.microdream.databaseonlinecourseplatform.mapper.CourseHeatMapper;
-import com.microdream.databaseonlinecourseplatform.mapper.SystemLogMapper;
+import com.microdream.databaseonlinecourseplatform.mapper.*;
 import com.microdream.databaseonlinecourseplatform.pojo.CourseClick;
+import com.microdream.databaseonlinecourseplatform.pojo.FilePojo;
 import com.microdream.databaseonlinecourseplatform.pojo.SystemLog;
+import com.microdream.databaseonlinecourseplatform.pojo.User;
 import com.microdream.databaseonlinecourseplatform.pojo.response.CourseHeat;
+import com.microdream.databaseonlinecourseplatform.pojo.response.DashboardCounter;
 import com.microdream.databaseonlinecourseplatform.service.DashboardService;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,12 @@ public class DashBoardServiceImpl implements DashboardService {
 
     @Resource
     CourseHeatMapper courseHeatMapper;
+
+    @Resource
+    FilePojoMapper filePojoMapper;
+
+    @Resource
+    UserMapper userMapper;
 
     @Override
     public List<SystemLog> getFileUploadLog() {
@@ -64,6 +71,51 @@ public class DashBoardServiceImpl implements DashboardService {
         QueryWrapper<CourseHeat> qw = new QueryWrapper<>();
         qw.orderByDesc("heat_value");
         return courseHeatMapper.selectList(qw);
+    }
+
+    @Override
+    public DashboardCounter getTotalClickCount() {
+        DashboardCounter dashboardCounter = new DashboardCounter();
+        QueryWrapper<CourseClick> queryWrapper = new QueryWrapper<>();
+        Long count = courseClickMapper.selectCount(queryWrapper);
+        dashboardCounter.setValue(count.intValue());
+        dashboardCounter.setTitle("课程总点击量");
+        dashboardCounter.setSuffix("次点击");
+        return dashboardCounter;
+    }
+
+    @Override
+    public DashboardCounter getTotalLoginCount() {
+        DashboardCounter dashboardCounter = new DashboardCounter();
+        QueryWrapper<SystemLog> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("event", "User Access Successfully Granted").or().eq("event", "High Privilege Account Access Successfully Granted");
+        Long count = systemLogMapper.selectCount(queryWrapper);
+        dashboardCounter.setValue(count.intValue());
+        dashboardCounter.setTitle("用户登录总次数");
+        dashboardCounter.setSuffix("次登录");
+        return dashboardCounter;
+    }
+
+    @Override
+    public DashboardCounter getTotalFilesCount() {
+        DashboardCounter dashboardCounter = new DashboardCounter();
+        QueryWrapper<FilePojo> queryWrapper = new QueryWrapper<>();
+        Long count = filePojoMapper.selectCount(queryWrapper);
+        dashboardCounter.setValue(count.intValue());
+        dashboardCounter.setTitle("当前服务器课程文件数");
+        dashboardCounter.setSuffix("条文件记录");
+        return dashboardCounter;
+    }
+
+    @Override
+    public DashboardCounter getTotalUserCount() {
+        DashboardCounter dashboardCounter = new DashboardCounter();
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        Long count = userMapper.selectCount(queryWrapper);
+        dashboardCounter.setValue(count.intValue());
+        dashboardCounter.setTitle("当前服务器总用户数");
+        dashboardCounter.setSuffix("位用户");
+        return dashboardCounter;
     }
 
 

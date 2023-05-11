@@ -1,6 +1,4 @@
 <template>
-
-	<!-- Authors Table Card -->
 	<a-card :bordered="false" class="header-solid h-full" :bodyStyle="{padding: 0,}">
 		<template #title>
 			<a-row type="flex">
@@ -222,8 +220,6 @@
       </a-collapse-panel>
     </a-collapse>
 	</a-card>
-	<!-- / Authors Table Card -->
-
 </template>
 
 <script>

@@ -8,19 +8,19 @@
 
     <a-row :gutter="24" type="flex">
       <a-col :span="24" class="mb-24">
-        <ExtLinkTable2
+        <CardExtLinkTable2
             :data="table2Data"
             :columns="table2Columns"
-        ></ExtLinkTable2>
+        ></CardExtLinkTable2>
       </a-col>
     </a-row>
 
     <a-row :gutter="24" type="flex">
       <a-col :span="24" class="mb-24">
-        <ExtLinkTable
+        <CardExtLinkTable
             :data="table1Data"
             :columns="table1Columns"
-        ></ExtLinkTable>
+        ></CardExtLinkTable>
       </a-col>
     </a-row>
 
@@ -29,8 +29,8 @@
 
 <script>
 
-import ExtLinkTable from '../components/ExtLinkTable' ;
-import ExtLinkTable2 from '../components/ExtLinkTable2'
+import CardExtLinkTable from '../components/Cards/CardExtLinkTable.vue' ;
+import CardExtLinkTable2 from '../components/Cards/CardExtLinkTable2.vue'
 
 const table1Columns = [
   {
@@ -198,8 +198,8 @@ const table2Data = [
 
 export default ({
   components: {
-    ExtLinkTable,
-    ExtLinkTable2,
+      CardExtLinkTable,
+      CardExtLinkTable2,
   },
   data() {
     return {

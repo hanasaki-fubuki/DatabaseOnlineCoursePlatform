@@ -37,7 +37,7 @@
 
 	import WidgetCounter from '../components/Widgets/WidgetCounter' ;
 	import CardCourseHeat from '../components/Cards/CardCourseHeat.vue' ;
-	import CardUpdateLog from '../components/CardUpdateLog.vue' ;
+	import CardUpdateLog from '../components/Cards/CardUpdateLog.vue' ;
 
 	// Counter Widgets stats
 	const stats = [

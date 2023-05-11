@@ -39,8 +39,8 @@
 
 <script>
 
-	import CardChangePassword from "../components/CardChangePassword.vue"
-	import CardProfileInformation from "../components/CardProfileInformation.vue"
+	import CardChangePassword from "../components/Cards/CardChangePassword.vue"
+	import CardProfileInformation from "../components/Cards/CardProfileInformation.vue"
 
 	export default ({
 		components: {

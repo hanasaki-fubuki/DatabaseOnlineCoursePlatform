@@ -26,7 +26,7 @@ axios.defaults.withCredentials = true;
 // import './plugins/click-away'
 
 import './scss/app.scss';
-import CardCourseList from "@/components/CardCourseList.vue";
+import CardCourseList from "@/components/Cards/CardCourseList.vue";
 
 Vue.use(Antd);
 

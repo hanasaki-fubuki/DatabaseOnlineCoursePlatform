@@ -15,7 +15,7 @@
 
 <script>
 
-import CardSolution from '../components/CardSolution.vue' ;
+import CardSolution from '../components/Cards/CardSolution.vue' ;
 
 export default ({
     components: {

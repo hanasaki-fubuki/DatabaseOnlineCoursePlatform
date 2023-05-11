@@ -17,7 +17,7 @@
 <script>
 
 // Course List component.
-import CardCourseList from '../components/CardCourseList' ;
+import CardCourseList from '../components/Cards/CardCourseList.vue' ;
 
 
 export default ({

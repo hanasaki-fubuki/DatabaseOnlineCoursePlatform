@@ -12,13 +12,13 @@
 						<CardAdminTitle></CardAdminTitle>
 					</a-col>
 					<a-col :span="12" :xl="6" class="mb-24" v-for="(salary, index) in adminStatus" :key="index">
-						<AdminStatus
+						<CardAdminStatus
 								:value="salary.value"
 								:prefix="salary.prefix"
 								:icon="salary.icon"
 								:title="salary.title"
 								:content="salary.content"
-						></AdminStatus>
+						></CardAdminStatus>
 					</a-col>
 					<a-col :span="24" class="mb-24">
 						<CardSU></CardSU>
@@ -35,12 +35,11 @@
 
 <script>
 
-	import CardAdminTitle from "../components/CardAdminTitle.vue"
-	import AdminStatus from "../components/AdminStatus.vue"
-	import CardSU from "../components/CardSU.vue"
-	import CardSystemLog from "../components/CardSystemLog.vue"
-	import CardAdminUserTable from "../components/CardAdminUserTable.vue"
-	import CardTransactions from "../components/Cards/CardTransactions"
+	import CardAdminTitle from "../components/Cards/CardAdminTitle.vue"
+	import CardAdminStatus from "../components/Cards/CardAdminStatus.vue"
+	import CardSU from "../components/Cards/CardSU.vue"
+	import CardSystemLog from "../components/Cards/CardSystemLog.vue"
+	import CardAdminUserTable from "../components/Cards/CardAdminUserTable.vue"
 
 
 	const adminStatus = [
@@ -101,66 +100,13 @@
 		},
 	] ;
 
-	// "Your Transactions" list data.
-	const transactionsData = [
-		{
-			period: "NEWEST",
-		},
-		{
-			title: "Netflix",
-			datetime: "27 March 2021, at 12:30 PM",
-			amount: "2,500",
-			type: -1,// 0 is for pending, 1 is for deposit, -1 is for withdrawal.
-			status: 'danger',
-		},
-		{
-			title: "Apple",
-			datetime: "27 March 2021, at 04:30 AM",
-			amount: "2,000",
-			type: 1,
-			status: 'success',
-		},
-		{
-			period: "YESTERDAY",
-		},
-		{
-			title: "Stripe",
-			datetime: "26 March 2021, at 12:30 AM",
-			amount: "750",
-			type: 1,
-			status: 'success',
-		},
-		{
-			title: "HubSpot",
-			datetime: "26 March 2021, at 11:30 AM",
-			amount: "1,050",
-			type: 1,
-			status: 'success',
-		},
-		{
-			title: "Creative Tim",
-			datetime: "26 March 2021, at 07:30 AM",
-			amount: "2,400",
-			type: 1,
-			status: 'success',
-		},
-		{
-			title: "Webflow",
-			datetime: "26 March 2021, at 04:00 AM",
-			amount: "Pending",
-			type: 0,
-			status: 'warning',
-		},
-	] ;
-
 	export default ({
 		components: {
 			CardAdminTitle,
-			AdminStatus,
+			CardAdminStatus,
 			CardSU,
 			CardSystemLog,
 			CardAdminUserTable,
-			CardTransactions,
 		},
 		data() {
 			return {
@@ -168,9 +114,6 @@
 
 				// Associating "Invoices" list data with its corresponding property.
 				invoiceData,
-				
-				// Associating "Your Transactions" list data with its corresponding property.
-				transactionsData,
 			}
 		},
 	})

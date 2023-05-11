@@ -17,7 +17,7 @@
 <script>
 
 // Course List component.
-import CardCourseManage from '../components/CardCourseManage' ;
+import CardCourseManage from '../components/Cards/CardCourseManage.vue' ;
 
 
 export default ({

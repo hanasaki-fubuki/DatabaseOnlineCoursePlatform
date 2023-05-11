@@ -20,8 +20,8 @@
 
 <script>
 
-import CardNewProblem from '../components/CardNewProblem.vue' ;
-import CardProblemList from "../components/CardProblemList.vue";
+import CardNewProblem from '../components/Cards/CardNewProblem.vue' ;
+import CardProblemList from "../components/Cards/CardProblemList.vue";
 
 export default ({
     components: {

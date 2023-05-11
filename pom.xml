@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.microdream</groupId>
-    <artifactId>DatabaseOnlineCourseSpringBackend</artifactId>
+    <artifactId>DatabaseOnlineCoursePlatform</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>DatabaseOnlineCourseSpringBackend</name>
     <description>DatabaseOnlineCourseSpringBackend</description>

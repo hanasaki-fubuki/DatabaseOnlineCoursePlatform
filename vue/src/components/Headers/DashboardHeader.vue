@@ -39,6 +39,7 @@
 						</svg>
 						<span>当前用户: {{ userInfo.name }}</span>
 					</router-link>
+					<span v-if="userInfo.role === 0" style="color: red">*已登录DEBUG用户，强制开启全部功能，可能出现异常！</span>
 					<!-- / Header Control Buttons -->
 
 				</a-col>

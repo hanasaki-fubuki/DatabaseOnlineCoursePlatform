@@ -1,4 +1,4 @@
-package com.microdream.databaseonlinecourseplatform.pojo.response;
+package com.microdream.databaseonlinecourseplatform.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;

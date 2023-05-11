@@ -1,7 +1,7 @@
 package com.microdream.databaseonlinecourseplatform.controller;
 
 import com.microdream.databaseonlinecourseplatform.pojo.SystemLog;
-import com.microdream.databaseonlinecourseplatform.pojo.response.CourseHeat;
+import com.microdream.databaseonlinecourseplatform.pojo.CourseHeat;
 import com.microdream.databaseonlinecourseplatform.pojo.response.DashboardCounter;
 import com.microdream.databaseonlinecourseplatform.service.DashboardService;
 import lombok.extern.slf4j.Slf4j;

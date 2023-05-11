@@ -6,7 +6,7 @@ import com.microdream.databaseonlinecourseplatform.pojo.CourseClick;
 import com.microdream.databaseonlinecourseplatform.pojo.FilePojo;
 import com.microdream.databaseonlinecourseplatform.pojo.SystemLog;
 import com.microdream.databaseonlinecourseplatform.pojo.User;
-import com.microdream.databaseonlinecourseplatform.pojo.response.CourseHeat;
+import com.microdream.databaseonlinecourseplatform.pojo.CourseHeat;
 import com.microdream.databaseonlinecourseplatform.pojo.response.DashboardCounter;
 import com.microdream.databaseonlinecourseplatform.service.DashboardService;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package com.microdream.databaseonlinecourseplatform.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.microdream.databaseonlinecourseplatform.pojo.response.CourseHeat;
+import com.microdream.databaseonlinecourseplatform.pojo.CourseHeat;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

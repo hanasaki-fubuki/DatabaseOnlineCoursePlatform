@@ -1,7 +1,7 @@
 package com.microdream.databaseonlinecourseplatform.service;
 
 import com.microdream.databaseonlinecourseplatform.pojo.SystemLog;
-import com.microdream.databaseonlinecourseplatform.pojo.response.CourseHeat;
+import com.microdream.databaseonlinecourseplatform.pojo.CourseHeat;
 import com.microdream.databaseonlinecourseplatform.pojo.response.DashboardCounter;
 
 import java.util.List;

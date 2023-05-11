@@ -84,4 +84,10 @@ public interface SystemLogService extends IService<SystemLog> {
      */
     void problemSolved(int userId);
 
+/**
+     * 添加用户删除成功日志
+     * @param uid 用户ID
+     */
+    void userRemoveSuccess(int uid);
+
 }

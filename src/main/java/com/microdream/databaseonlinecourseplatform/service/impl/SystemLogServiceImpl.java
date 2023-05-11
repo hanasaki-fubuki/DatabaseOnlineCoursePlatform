@@ -129,4 +129,12 @@ public class SystemLogServiceImpl extends ServiceImpl<SystemLogMapper, SystemLog
         systemLog.setLogTime(new Date());
         save(systemLog);
     }
+
+    @Override
+    public void userRemoveSuccess(int uid) {
+        systemLog.setUid(uid);
+        systemLog.setEvent("User Successfully Removed");
+        systemLog.setLogTime(new Date());
+        save(systemLog);
+    }
 }

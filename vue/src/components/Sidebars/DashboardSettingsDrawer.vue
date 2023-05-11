@@ -46,7 +46,7 @@
 				</a-radio-group>
 			</div>
 			<div class="navbar-fixed">
-				<h6>任何情况下固定导航栏</h6>
+				<h6>固定顶部标题导航栏</h6>
 				<a-switch default-checked @change="$emit('toggleNavbarPosition', navbarFixedModel)"/>
 			</div>
 			<div class="download">

@@ -5,83 +5,31 @@
 
 <template>
 	<div>
-
 		<a-row type="flex" :gutter="24">
-
-			<!-- Billing Info Column -->
 			<a-col :span="24" :md="16">
 				<a-row type="flex" :gutter="24">
 					<a-col :span="24" :xl="12" class="mb-24">
-
-						<!-- Master Card -->
 						<CardAdminTitle></CardAdminTitle>
-						<!-- / Master Card -->
-
 					</a-col>
 					<a-col :span="12" :xl="6" class="mb-24" v-for="(salary, index) in adminStatus" :key="index">
-
-						<!-- Salary Card -->
 						<AdminStatus
-							:value="salary.value"
-							:prefix="salary.prefix"
-							:icon="salary.icon"
-							:title="salary.title"
-							:content="salary.content"
+								:value="salary.value"
+								:prefix="salary.prefix"
+								:icon="salary.icon"
+								:title="salary.title"
+								:content="salary.content"
 						></AdminStatus>
-						<!-- / Salary Card -->
-
 					</a-col>
 					<a-col :span="24" class="mb-24">
-
-						<!-- Payment Methods Card -->
-						<CardPaymentMethods></CardPaymentMethods>
-						<!-- Payment Methods Card -->
-
+						<CardSU></CardSU>
 					</a-col>
+					<CardAdminUserTable></CardAdminUserTable>
 				</a-row>
 			</a-col>
-			<!-- / Billing Info Column -->
-			
-			<!-- Invoices Column -->
 			<a-col :span="24" :md="8" class="mb-24">
-
-				<!-- Invoices Card -->
-				<CardInvoices
-					:data="invoiceData"
-				></CardInvoices>
-				<!-- / Invoices Card -->
-
+				<CardSystemLog></CardSystemLog>
 			</a-col>
-			<!-- / Invoices Column -->
-
 		</a-row>
-
-		<a-row type="flex" :gutter="24">
-
-			<!-- Billing Information Column -->
-			<a-col :span="24" :md="16" class="mb-24">
-
-				<!-- Billing Information Card -->
-				<CardAdminUserTable></CardAdminUserTable>
-				<!-- / Billing Information Card -->
-
-			</a-col>
-			<!-- Billing Information Column -->
-
-			<!-- Your Transactions Column -->
-			<a-col :span="24" :md="8" class="mb-24">
-
-				<!-- Your Transactions Card -->
-				<CardTransactions
-					:data="transactionsData"
-				></CardTransactions>
-				<!-- / Your Transactions Card -->
-
-			</a-col>
-			<!-- / Your Transactions Column -->
-			
-		</a-row>
-
 	</div>
 </template>
 
@@ -89,13 +37,12 @@
 
 	import CardAdminTitle from "../components/CardAdminTitle.vue"
 	import AdminStatus from "../components/AdminStatus.vue"
-	import CardPaymentMethods from "../components/Cards/CardPaymentMethods"
-	import CardInvoices from "../components/Cards/CardInvoices"
+	import CardSU from "../components/CardSU.vue"
+	import CardSystemLog from "../components/CardSystemLog.vue"
 	import CardAdminUserTable from "../components/CardAdminUserTable.vue"
 	import CardTransactions from "../components/Cards/CardTransactions"
 
 
-	// Salary cards data
 	const adminStatus = [
 		{
 			value: "正常运行",
@@ -210,8 +157,8 @@
 		components: {
 			CardAdminTitle,
 			AdminStatus,
-			CardPaymentMethods,
-			CardInvoices,
+			CardSU,
+			CardSystemLog,
 			CardAdminUserTable,
 			CardTransactions,
 		},

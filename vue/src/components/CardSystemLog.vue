@@ -29,8 +29,6 @@
 		</div>
 
 	</a-card>
-	<!-- / Invoices Card -->
-
 </template>
 
 <script>

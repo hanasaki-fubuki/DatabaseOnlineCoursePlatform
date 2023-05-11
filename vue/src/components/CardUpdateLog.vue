@@ -1,38 +1,19 @@
 <template>
-
-	<!-- Orders History Timeline Card -->
 	<a-card :bordered="false" class="header-solid h-full" :bodyStyle="{paddingTop: '12px',}">
 		<template #title>
 			<h6>课程更新日志</h6>
-			<p>此处显示本月课程更新时间线，请关注！ <span class="text-success"></span></p>
+			<p>此处显示课程更新时间线，请关注！</p>
+			<p>默认按照时间倒序排列，点击下方倒置按钮调整顺序。</p>
 		</template>
-		<a-timeline pending="Recording..." :reverse="timelineReverse">
-			<a-timeline-item color="green">
-				$2,400 - Redesign store
-				<p>09 JUN 7:20 PM</p>
-			</a-timeline-item>
-			<a-timeline-item color="green">
-				New order #3654323
-				<p>08 JUN 12:20 PM</p>
-			</a-timeline-item>
-			<a-timeline-item color="blue">
-				Company server payments 
-				<p>04 JUN 3:10 PM</p>
-			</a-timeline-item>
-			<a-timeline-item color="blue">
-				New card added for order #4826321
-				<p>02 JUN 2:45 PM</p>
-			</a-timeline-item>
-			<a-timeline-item color="blue">
-				Unlock folders for development
-				<p>18 MAY 1:30 PM</p>
-			</a-timeline-item>
-			<a-timeline-item color="gray">
-				New order #46282344
-				<p>14 MAY 3:30 PM</p>
-			</a-timeline-item>
-			<template #pendingDot> </template>
-		</a-timeline>
+		<div class="demo-infinite-container">
+			<a-timeline pending="Recording..." :reverse="timelineReverse">
+				<a-timeline-item color="green" v-for="fileUploadLog in fileUploadLogs">
+					{{ fileUploadLog.event }}
+					<p>{{ fileUploadLog.logTime }}</p>
+				</a-timeline-item>
+				<template #pendingDot> </template>
+			</a-timeline>
+		</div>
 		<a-button type="primary" block size="small" @click="timelineReverse = ! timelineReverse">
 			<svg v-show="! timelineReverse" width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M3 3C2.44772 3 2 3.44772 2 4C2 4.55228 2.44772 5 3 5H14C14.5523 5 15 4.55228 15 4C15 3.44772 14.5523 3 14 3H3Z" fill="#111827"/>
@@ -46,11 +27,9 @@
 				<path d="M3 11C2.44772 11 2 11.4477 2 12C2 12.5523 2.44772 13 3 13H7C7.55228 13 8 12.5523 8 12C8 11.4477 7.55228 11 7 11H3Z" fill="#111827"/>
 				<path d="M15 8C15 7.44772 14.5523 7 14 7C13.4477 7 13 7.44771 13 8L13 13.5858L11.7071 12.2929C11.3166 11.9024 10.6834 11.9024 10.2929 12.2929C9.90237 12.6834 9.90237 13.3166 10.2929 13.7071L13.2929 16.7071C13.4804 16.8946 13.7348 17 14 17C14.2652 17 14.5196 16.8946 14.7071 16.7071L17.7071 13.7071C18.0976 13.3166 18.0976 12.6834 17.7071 12.2929C17.3166 11.9024 16.6834 11.9024 16.2929 12.2929L15 13.5858L15 8Z" fill="#111827"/>
 			</svg>
-			REVERSE
+			倒置
 		</a-button>
 	</a-card>
-	<!-- / Orders History Timeline Card -->
-
 </template>
 
 <script>
@@ -58,11 +37,36 @@
 	export default ({
 		data() {
 			return {
-
-				// Whether or not the timeline in "Orders History" card is reversed.
-				timelineReverse: false,
+				fileUploadLogs: [],
+				timelineReverse: true,
 			}
 		},
+		methods: {
+			async fetchLogs() {
+				await this.$axios
+						.post('/file-upload-log')
+						.then(response => {
+							this.fileUploadLogs = response.data;
+							console.log(response.data);
+						})
+						.catch(error => {
+							console.log(error);
+						});
+			}
+		},
+		async mounted() {
+			await this.fetchLogs()
+		}
 	})
 
 </script>
+
+<style>
+.demo-infinite-container {
+	border: 1px solid #e8e8e8;
+	border-radius: 4px;
+	overflow: auto;
+	padding: 8px 24px;
+	height: 495px;
+}
+</style>

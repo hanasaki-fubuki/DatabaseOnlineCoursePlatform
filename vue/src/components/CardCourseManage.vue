@@ -336,7 +336,9 @@ export default {
                 const response = await this.$axios.post('/file-list', { listNum: String(i) })
                     .then(response => {
                         console.log(response.data)
-                        this.$message.info("已获取文件列表" + i + "/30...")
+                        if (i === 10 || i === 20 || i === 30) {
+                            this.$message.success("已获取文件列表" + i + "/30！")
+                        }
                         // 将获取到的fileList赋值给组件的fileList属性
                         this[`fileList${i}`] = response.data.map(file => {
                             return this.fileFormatter(file);

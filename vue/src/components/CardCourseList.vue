@@ -228,7 +228,42 @@
 
 <script>
 import {UploadOutlined} from '@ant-design/icons-vue';
-
+function numToText(num) {
+    const texts = [
+        '',
+        '1.1 数据库系统三级模式结构',
+        '1.2 ER图及向关系的转换',
+        '2.1 关系的性质和完整性约束',
+        '2.2 关系代数的基本运算',
+        '2.3 关系代数练习',
+        '3.1 SQL概述-实验环境及DDL',
+        '3.2 SQL的数据查询',
+        '3.3 SQL的数据更新',
+        '3.4 视图',
+        '3.5 授予与回收权限',
+        '4.1 游标',
+        '4.2 存储过程和函数',
+        '5.1 数据库的完整性',
+        '5.2 在被参照关系中删除元组时的问题',
+        '5.3 外码是否可以接受空值的问题',
+        '5.4 修改被参照关系中主码的问题',
+        '5.5 在参照关系中插入元组时的问题',
+        '5.6 触发器',
+        '6.1 关系数据理论基本概念',
+        '6.2 范式分析',
+        '6.3 函数依赖的公理系统',
+        '6.4 求候选码',
+        '6.5 模式分解',
+        '7.1 事务的基本概念及ACID特性',
+        '7.2 三种故障及其恢复',
+        '7.3 转储和日志文件的基本概念',
+        '7.4 具有检查点的恢复技术和数据库镜像',
+        '8.1 并发调度的可串行性和两段锁协议',
+        '8.2 活锁和死锁',
+        '8.3 封锁粒度'
+    ];
+    return texts[num];
+}
 export default {
     components: {
       UploadOutlined,
@@ -284,6 +319,7 @@ export default {
         fileFormatter(fileData) {
             return {
                 name: fileData.filename,
+                listNum: fileData.listNum,
                 url: fileData.url,
                 uid: fileData.id,
                 status: 'done',
@@ -297,7 +333,7 @@ export default {
 
         // 下载文件调用
         handleDownload(file) {
-            console.log(file)
+            this.courseClick(file);
             this.$axios.get(`${file.url}`)
                 .then(response => {
                     console.log(response)
@@ -319,12 +355,26 @@ export default {
                 });
         },
 
+        courseClick(file) {
+            const params = new FormData();
+            params.append('chapterName', numToText(file.listNum));
+            this.$axios.post('/course-click', params)
+                .then(response => {
+                    console.log(response.data)
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        },
+
         async fetchData() {
             for (let i = 1; i <= 30; i++) {
                 const response = await this.$axios.post('/file-list', { listNum: String(i) })
                     .then(response => {
                         console.log(response.data)
-                        this.$message.info("已获取文件列表" + i + "/30...")
+                        if (i === 10 || i === 20 || i === 30) {
+                            this.$message.success("已获取文件列表" + i + "/30！")
+                        }
                         // 将获取到的fileList赋值给组件的fileList属性
                         this[`fileList${i}`] = response.data.map(file => {
                             return this.fileFormatter(file);

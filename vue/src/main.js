@@ -23,7 +23,6 @@ import VueAxios from 'vue-axios'
 Vue.prototype.$axios = axios
 Vue.use(VueAxios,axios);
 axios.defaults.withCredentials = true;
-// import './plugins/click-away'
 
 import './scss/app.scss';
 import CardCourseList from "@/components/Cards/CardCourseList.vue";

@@ -32,7 +32,6 @@
 					</template>
 					<template v-else>
 						<a-textarea :placeholder="'请输入对[' + item.subject + ']的回答'" />
-						<p> </p>
 						<a-button type="primary" class="btn-edit"
 											:data-id="item.id"
 											:data-uid="item.uid"
